@@ -1,9 +1,12 @@
+import { getFeaturedEvents } from "../dummy-data";
+import EvenList from "../components/events/event-list";
+
 function HomePage() {
   const featuredEvents = getFeaturedEvents();
 
   return (
     <div>
-      <ul></ul>
+      <EvenList items={featuredEvents} />
     </div>
   );
 }

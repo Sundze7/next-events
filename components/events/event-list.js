@@ -1,4 +1,5 @@
 import EventItem from "./event-item";
+import classes from "./event-list.module.css";
 
 function EvenList(props) {
   //props destructioning, so we dont use props.item. We simply just use items, as we have done in the return section.
@@ -6,7 +7,7 @@ function EvenList(props) {
   const { items } = props;
 
   return (
-    <ul>
+    <ul className={classes.list}>
       {items.map((event) => (
         <EventItem
           key={event.id}
