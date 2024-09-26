@@ -1,14 +1,23 @@
-import { getFeaturedEvents } from "../dummy-data";
+import { getFeaturedEvents } from "../helpers/api-util";
 import EvenList from "../components/events/event-list";
 
-function HomePage() {
-  const featuredEvents = getFeaturedEvents();
-
+function HomePage(props) {
   return (
     <div>
-      <EvenList items={featuredEvents} />
+      <EvenList items={props.events} />
     </div>
   );
+}
+
+// pre-rendering usong static regenration
+export async function getStaticProps() {
+  const featuredEvents = await getFeaturedEvents();
+
+  return {
+    props: {
+      events: featuredEvents,
+    },
+  };
 }
 
 export default HomePage;
